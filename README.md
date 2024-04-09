@@ -77,7 +77,6 @@ I'm a passionate learner who's always willing to learn and work across technolog
 <h2 align="center">
   My Github Stats<img src="https://media.giphy.com/media/VgCDAzcKvsR6OM0uWg/giphy.gif" width="50">
 </h2>
- 
 <br>
 
 <p align = "center">
@@ -89,8 +88,5 @@ I'm a passionate learner who's always willing to learn and work across technolog
  <img  src="https://github-readme-streak-stats.herokuapp.com/?user=ayyappadasrajagopal&show_icons=true&locale=en&layout=compact&theme=radical&line_height=0" />
 </p> 
 
-<p align = "center">
- <img src="https://activity-graph.herokuapp.com/graph?username=ayyappadasrajagopal&theme=redical">
-</p> 
 <hr>
 <p align="center">If you like it, do fork 🍴 and star ⭐</p>
