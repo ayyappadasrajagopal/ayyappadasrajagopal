@@ -19,7 +19,7 @@ Here are some ideas to get you started:
 <p align="center">
  
 </p align="center">
-<img src="https://github.com/ayyappadasrajagopal/ayyappadasrajagopal/blob/main/images/newbg(1).png" />
+<img src="https://github.com/ayyappadasrajagopal/ayyappadasrajagopal/blob/main/images/image1.png" />
 
 <p align="center">
  
