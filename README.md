@@ -40,10 +40,10 @@ I'm a passionate learner who's always willing to learn and work across technolog
 
 
 <h2 align="center">
-  My Contribution Graph <img src="https://media.giphy.com/media/xUA7aZeLE2e0P7Znz2/giphy.gif" width="50">
+   What I am doing
 </h2>
 <p align="center">
-  <img src="https://github.com/ayyappadasrajagopal/ayyappadasrajagopal/raw/output/github-contribution-grid-snake.svg" alt="snake"></center>
+  I am working on NCS and related fields
 </p>
 
 <h2 align="center">
