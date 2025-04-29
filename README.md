@@ -40,25 +40,12 @@ I'm a passionate learner who's always willing to learn and work across technolog
 
 
 <h2 align="center">
-   What I am doing
+   Research Focus
 </h2>
 <p align="center">
-  I am working on NCS and related fields
+  I am working on NCS and related fields, especially on optimal state esitmation and control
 </p>
 
-<h2 align="center">
-  My Github Stats<img src="https://media.giphy.com/media/VgCDAzcKvsR6OM0uWg/giphy.gif" width="50">
-</h2>
-<br>
-
-<p align = "center">
-  <img  src = "https://github-readme-stats.vercel.app/api?username=ayyappadasrajagopal&show_icons=true&theme=radical&line_height=27">
-  <img src = "https://github-readme-stats.vercel.app/api/top-langs/?username=ayyappadasrajagopal&hide=html,css,java,shaderlab,kotlin,hlsl&theme=radical">
-</p>
-
-<p align = "center">
- <img  src="https://github-readme-streak-stats.herokuapp.com/?user=ayyappadasrajagopal&show_icons=true&locale=en&layout=compact&theme=radical&line_height=0" />
-</p> 
 
 <hr>
 <p align="center">If you like it, do fork 🍴 and star ⭐</p>
