@@ -46,8 +46,8 @@ My research delves into:
 ### 📫 Get in Touch
 
 - 🌐 [Portfolio Website](https://ayyappadasrajagopal.github.io)
-- 📧 [Email me (official](mailto:122004004@smail.iitpkd.ac.in)
-- 📧 [Email me (personal](mailto:ayyappadas.r.nair@gmail.com)
+- 📧 [Email me (official)](mailto:122004004@smail.iitpkd.ac.in)
+- 📧 [Email me (personal)](mailto:ayyappadas.r.nair@gmail.com)
 - 💼 [LinkedIn](https://www.linkedin.com/in/ayyappadasrajagopal/)
 - 🐦 [Personal website](https://www.ayyappadasrajagopal.com/)
 
