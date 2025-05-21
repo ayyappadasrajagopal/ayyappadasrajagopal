@@ -54,15 +54,16 @@ My research delves into:
 ### 📫 Get in Touch
 
 - 🌐 [Portfolio Website](https://ayyappadasrajagopal.github.io/portfolio/)
-- 📧 [Email me](mailto:ayyappadas.r.nair@gmail.com)
+- 📧 [Email me (official](mailto:122004004@smail.iitpkd.ac.in)
+- 📧 [Email me (personal](mailto:ayyappadas.r.nair@gmail.com)
 - 💼 [LinkedIn](https://www.linkedin.com/in/ayyappadasrajagopal/)
-- 🐦 [Twitter](https://twitter.com/ayyappadas_r)
+- 🐦 [Personal website](https://www.ayyappadasrajagopal.com/)
 
 ---
 
 ### ⚡ Fun Fact
 
-> I love blending **classical control wisdom** with **modern learning techniques** to build **smarter and safer systems** 🚀
+> I love blending **modern Control Theory** with **advanced Communication Systems** and **sophisticated learning techniques** to build **smarter and safer cyber physical systems** 🚀
 
 ---
 
