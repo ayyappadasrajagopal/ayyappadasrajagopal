@@ -5,14 +5,6 @@
   <img src="https://github.com/ayyappadasrajagopal/ayyappadasrajagopal/blob/main/images/image1.png" alt="banner" />
 </p>
 
-<!-- GitHub Stats Badges -->
-<p align="center">
-  <img src="https://badges.pufler.dev/visits/ayyappadasrajagopal/ayyappadasrajagopal"/>
-  <img src="https://badges.pufler.dev/repos/ayyappadasrajagopal"/>
-  <img src="https://badges.pufler.dev/commits/monthly/ayyappadasrajagopal"/>
-</p>
-
----
 
 ## 👋 Hello! I'm Ayyappadas Rajagopal
 
