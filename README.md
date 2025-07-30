@@ -1,11 +1,5 @@
 <!-- Profile README -->
 
-<!-- Banner -->
-<p align="center">
-  <img src="https://github.com/ayyappadasrajagopal/ayyappadasrajagopal/blob/main/images/image1.png" alt="banner" />
-</p>
-
-
 ## 👋 Hello! I'm Dr. Ayyappadas Rajagopal
 
 🎓 PhD in **Electrical Engineering** from **IIT Palakkad**, India  
