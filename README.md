@@ -6,9 +6,9 @@
 </p>
 
 
-## 👋 Hello! I'm Ayyappadas Rajagopal
+## 👋 Hello! I'm Dr. Ayyappadas Rajagopal
 
-🎓 PhD Researcher in **Electrical Engineering** at **IIT Palakkad**, India  
+🎓 PhD in **Electrical Engineering** from **IIT Palakkad**, India  
 🧠 Passionate about **Networked Control Systems**, **Estimation and Control**, and **Cyber-Physical Systems**  
 🤖 Bridging the gap between **theory and real-world systems** through **hardware-in-the-loop (HIL)** implementation and **applied algorithms**
 
