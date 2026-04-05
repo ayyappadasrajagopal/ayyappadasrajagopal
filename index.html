@@ -1,13 +1,1233 @@
-<!-- index.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Ayyappadas Rajagopal | Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr. Ayyappadas Rajagopal | Portfolio</title>
+  <meta name="description" content="Portfolio of Dr. Ayyappadas Rajagopal – PhD in Electrical Engineering, Networked Control Systems, Robotics & Cyber-Physical Systems." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    /* ===== CSS RESET & ROOT VARS ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg:        #060b18;
+      --bg2:       #0d1526;
+      --surface:   rgba(255,255,255,0.05);
+      --border:    rgba(255,255,255,0.10);
+      --accent:    #5b9cf6;
+      --accent2:   #a78bfa;
+      --accent3:   #34d399;
+      --text:      #e2e8f0;
+      --text-dim:  #94a3b8;
+      --card-bg:   rgba(13,21,38,0.80);
+      --glow:      0 0 40px rgba(91,156,246,0.18);
+      --radius:    16px;
+      --tr:        0.35s cubic-bezier(0.4,0,0.2,1);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+    body.custom-cursor-active { cursor: none; }
+    a { color: var(--accent); text-decoration: none; transition: color var(--tr); }
+    a:hover { color: var(--accent2); }
+    img { max-width: 100%; }
+
+    /* ===== LOADING SCREEN ===== */
+    #loader {
+      position: fixed; inset: 0; z-index: 9999;
+      background: var(--bg);
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 24px;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+    }
+    #loader.hidden { opacity: 0; visibility: hidden; }
+    .loader-ring {
+      width: 64px; height: 64px;
+      border: 3px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.9s linear infinite;
+    }
+    .loader-text {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      animation: pulse 1.4s ease infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes pulse { 0%,100%{opacity:.4} 50%{opacity:1} }
+
+    /* ===== CUSTOM CURSOR ===== */
+    #cursor-dot {
+      position: fixed; z-index: 10000; pointer-events: none;
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--accent);
+      transform: translate(-50%,-50%);
+      transition: width 0.2s, height 0.2s, background 0.2s;
+    }
+    #cursor-ring {
+      position: fixed; z-index: 9999; pointer-events: none;
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 1.5px solid var(--accent);
+      transform: translate(-50%,-50%);
+      transition: transform 0.12s ease, width 0.25s, height 0.25s, opacity 0.25s;
+      opacity: 0.6;
+    }
+    body.cursor-hover #cursor-dot { width: 14px; height: 14px; background: var(--accent2); }
+    body.cursor-hover #cursor-ring { width: 52px; height: 52px; opacity: 0.4; }
+
+    /* ===== CANVAS BACKGROUND ===== */
+    #particle-canvas {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    }
+
+    /* ===== NAVIGATION ===== */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 clamp(20px,5vw,80px);
+      height: 70px;
+      background: rgba(6,11,24,0.75);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid transparent;
+      transition: border-color var(--tr), background var(--tr), box-shadow var(--tr);
+    }
+    nav.scrolled {
+      border-bottom-color: var(--border);
+      box-shadow: 0 4px 32px rgba(0,0,0,0.4);
+    }
+    .nav-logo {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-dim);
+      position: relative;
+      transition: color var(--tr);
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute; bottom: -4px; left: 0; right: 0; height: 1.5px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform var(--tr);
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover::after { transform: scaleX(1); transform-origin: left; }
+    .nav-cta {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent) !important;
+      border: 1px solid var(--accent);
+      padding: 6px 18px;
+      border-radius: 100px;
+      transition: background var(--tr), color var(--tr) !important;
+    }
+    .nav-cta:hover { background: var(--accent); color: var(--bg) !important; }
+    .nav-cta::after { display: none !important; }
+    #nav-toggle { display: none; }
+
+    /* ===== SECTIONS (GENERAL) ===== */
+    section { position: relative; z-index: 1; }
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 clamp(20px,5vw,60px);
+    }
+    .section-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 1rem;
+      margin-bottom: 60px;
+    }
+    .accent-word { color: var(--accent); }
+    .divider {
+      width: 60px; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      border-radius: 2px;
+      margin: 12px auto 0;
+    }
+
+    /* ===== SCROLL REVEAL ===== */
+    .reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+
+    /* ===== HERO ===== */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 120px 0 80px;
+      background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(91,156,246,0.12) 0%, transparent 70%);
+    }
+    .hero-content { max-width: 780px; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(91,156,246,0.12);
+      border: 1px solid rgba(91,156,246,0.25);
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+    }
+    .hero-badge::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); animation: pulse 1.4s infinite; }
+    .hero-name {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(2.8rem, 6.5vw, 5rem);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      margin-bottom: 18px;
+      background: linear-gradient(135deg, #e2e8f0 0%, #94a3b8 50%, #5b9cf6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.1rem, 2.4vw, 1.5rem);
+      font-style: italic;
+      color: var(--accent2);
+      margin-bottom: 24px;
+    }
+    .hero-desc {
+      font-size: clamp(1rem, 1.8vw, 1.15rem);
+      color: var(--text-dim);
+      line-height: 1.75;
+      max-width: 600px;
+      margin-bottom: 40px;
+    }
+    .hero-cta {
+      display: flex; flex-wrap: wrap; gap: 16px; align-items: center;
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 32px;
+      border-radius: 100px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      transition: all var(--tr);
+    }
+    body.custom-cursor-active .btn { cursor: none; }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+      box-shadow: 0 4px 24px rgba(91,156,246,0.4);
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px rgba(91,156,246,0.55);
+      color: #fff;
+    }
+    .btn-outline {
+      border: 1.5px solid var(--border);
+      color: var(--text);
+      background: var(--surface);
+      backdrop-filter: blur(10px);
+    }
+    .btn-outline:hover {
+      border-color: var(--accent);
+      background: rgba(91,156,246,0.08);
+      transform: translateY(-3px);
+      color: var(--accent);
+    }
+    .hero-website {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.9rem; font-weight: 500; color: var(--accent3);
+      transition: color var(--tr);
+    }
+    .hero-website:hover { color: #fff; }
+    .hero-website::before { content: '🌐'; font-size: 0.9em; }
+    .hero-stats {
+      display: flex; flex-wrap: wrap; gap: 40px;
+      margin-top: 60px; padding-top: 40px;
+      border-top: 1px solid var(--border);
+    }
+    .stat-num {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2rem; font-weight: 700;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .stat-label { font-size: 0.8rem; color: var(--text-dim); margin-top: 2px; }
+
+    /* ===== ABOUT ===== */
+    #about { padding: 100px 0; }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .about-image-wrap {
+      position: relative;
+      display: flex; justify-content: center;
+    }
+    .about-image-ring {
+      width: min(300px,80vw); height: min(300px,80vw);
+      border-radius: 50%;
+      border: 2px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+    .about-image-ring::before {
+      content: '';
+      position: absolute; inset: -12px;
+      border-radius: 50%;
+      border: 1px solid rgba(91,156,246,0.2);
+      animation: ringRotate 12s linear infinite;
+    }
+    @keyframes ringRotate { to { transform: rotate(360deg); } }
+    .about-avatar {
+      width: min(260px,72vw); height: min(260px,72vw);
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--bg2), #162035);
+      display: flex; align-items: center; justify-content: center;
+      font-size: clamp(4rem, 12vw, 7rem);
+      overflow: hidden;
+      box-shadow: var(--glow);
+    }
+    .about-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .about-badge-float {
+      position: absolute; bottom: 0; right: 0;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 8px 16px; border-radius: 100px;
+      box-shadow: 0 4px 20px rgba(91,156,246,0.5);
+      white-space: nowrap;
+    }
+    .about-text h2 { font-family: 'Poppins', sans-serif; font-size: 1.8rem; font-weight: 700; margin-bottom: 16px; }
+    .about-text p { color: var(--text-dim); line-height: 1.8; margin-bottom: 16px; }
+    .about-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .tag {
+      font-size: 0.78rem; font-weight: 600;
+      padding: 6px 14px; border-radius: 100px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text-dim);
+      transition: all var(--tr);
+    }
+    .tag:hover { border-color: var(--accent); color: var(--accent); }
+    .about-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .social-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.82rem; font-weight: 600;
+      padding: 8px 18px; border-radius: 100px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text-dim);
+      transition: all var(--tr);
+    }
+    .social-link:hover {
+      border-color: var(--accent); color: var(--accent);
+      background: rgba(91,156,246,0.08);
+      transform: translateY(-2px);
+    }
+
+    /* ===== RESEARCH ===== */
+    #research { padding: 100px 0; background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(167,139,250,0.05) 0%, transparent 70%); }
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .research-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      backdrop-filter: blur(12px);
+      transition: all var(--tr);
+      position: relative;
+      overflow: hidden;
+    }
+    .research-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(91,156,246,0.06) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity var(--tr);
+    }
+    .research-card:hover { transform: translateY(-6px); border-color: rgba(91,156,246,0.4); box-shadow: var(--glow); }
+    .research-card:hover::before { opacity: 1; }
+    .research-icon { font-size: 2rem; margin-bottom: 18px; }
+    .research-card h3 { font-family: 'Poppins', sans-serif; font-size: 1.05rem; font-weight: 600; margin-bottom: 10px; }
+    .research-card p { font-size: 0.875rem; color: var(--text-dim); line-height: 1.7; }
+    .quote-block {
+      background: var(--card-bg);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 28px 32px;
+      margin: 48px 0;
+      backdrop-filter: blur(12px);
+    }
+    .quote-block p {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    .quote-block cite { display: block; margin-top: 12px; font-size: 0.8rem; color: var(--text-dim); font-style: normal; }
+
+    /* ===== SKILLS ===== */
+    #skills { padding: 100px 0; }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+    }
+    .skill-group {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      backdrop-filter: blur(12px);
+      transition: all var(--tr);
+    }
+    .skill-group:hover { transform: translateY(-4px); border-color: rgba(167,139,250,0.35); box-shadow: var(--glow); }
+    .skill-group h3 { font-family: 'Poppins', sans-serif; font-size: 1rem; font-weight: 600; margin-bottom: 20px; color: var(--accent2); }
+    .skill-item { margin-bottom: 18px; }
+    .skill-header { display: flex; justify-content: space-between; margin-bottom: 8px; }
+    .skill-name { font-size: 0.85rem; font-weight: 500; }
+    .skill-pct { font-size: 0.78rem; color: var(--text-dim); }
+    .skill-bar { height: 5px; background: var(--border); border-radius: 3px; overflow: hidden; }
+    .skill-fill {
+      height: 100%; border-radius: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 1.2s cubic-bezier(0.4,0,0.2,1);
+    }
+    .skill-fill.animated { transform: scaleX(1); }
+
+    /* ===== PROJECTS ===== */
+    #projects { padding: 100px 0; background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(52,211,153,0.04) 0%, transparent 70%); }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      backdrop-filter: blur(12px);
+      display: flex; flex-direction: column;
+      gap: 14px;
+      transition: all var(--tr);
+      position: relative;
+      overflow: hidden;
+    }
+    .project-card::after {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform var(--tr);
+    }
+    .project-card:hover { transform: translateY(-6px); box-shadow: var(--glow); }
+    .project-card:hover::after { transform: scaleX(1); }
+    .project-number {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.15em; color: var(--accent);
+    }
+    .project-card h3 { font-family: 'Poppins', sans-serif; font-size: 1.05rem; font-weight: 600; }
+    .project-card p { font-size: 0.875rem; color: var(--text-dim); line-height: 1.7; flex: 1; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .project-tag {
+      font-size: 0.72rem; font-weight: 600;
+      padding: 4px 12px; border-radius: 100px;
+      background: rgba(91,156,246,0.1);
+      border: 1px solid rgba(91,156,246,0.2);
+      color: var(--accent);
+    }
+
+    /* ===== CONTACT ===== */
+    #contact { padding: 100px 0; }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .contact-info h2 { font-family: 'Poppins', sans-serif; font-size: 1.8rem; font-weight: 700; margin-bottom: 16px; }
+    .contact-info p { color: var(--text-dim); line-height: 1.8; margin-bottom: 32px; }
+    .contact-links { display: flex; flex-direction: column; gap: 14px; }
+    .contact-link {
+      display: flex; align-items: center; gap: 14px;
+      padding: 16px 20px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      backdrop-filter: blur(10px);
+      transition: all var(--tr);
+      color: var(--text-dim);
+    }
+    .contact-link:hover { border-color: var(--accent); transform: translateX(6px); color: var(--text); }
+    .contact-link-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: rgba(91,156,246,0.12);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .contact-link-text { font-size: 0.875rem; }
+    .contact-link-label { font-weight: 600; color: var(--text); font-size: 0.78rem; margin-bottom: 2px; }
+    .contact-form { display: flex; flex-direction: column; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group label { font-size: 0.8rem; font-weight: 600; color: var(--text-dim); letter-spacing: 0.04em; }
+    .form-group input, .form-group textarea {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 14px 18px;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      transition: border-color var(--tr), box-shadow var(--tr);
+      resize: vertical;
+      backdrop-filter: blur(10px);
+    }
+    .form-group input:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(91,156,246,0.15);
+    }
+    .form-group textarea { min-height: 130px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 60px 0 32px;
+      position: relative; z-index: 1;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 32px;
+    }
+    .footer-brand .footer-name {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.3rem; font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .footer-brand p { font-size: 0.85rem; color: var(--text-dim); line-height: 1.7; }
+    .footer-website-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.85rem; font-weight: 600; color: var(--accent3);
+      margin-top: 14px;
+      transition: color var(--tr);
+    }
+    .footer-website-link:hover { color: #fff; }
+    .footer-section h4 { font-family: 'Poppins', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 18px; }
+    .footer-section ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-section ul a { font-size: 0.875rem; color: var(--text-dim); transition: color var(--tr); }
+    .footer-section ul a:hover { color: var(--accent); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-bottom p { font-size: 0.8rem; color: var(--text-dim); }
+    .footer-socials { display: flex; gap: 12px; }
+    .footer-social {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: var(--surface); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem;
+      transition: all var(--tr);
+      color: var(--text-dim);
+    }
+    .footer-social:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); background: rgba(91,156,246,0.1); }
+
+    /* ===== SCROLL TO TOP ===== */
+    #scroll-top {
+      position: fixed; bottom: 32px; right: 32px; z-index: 200;
+      width: 46px; height: 46px; border-radius: 12px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+      border: none;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(91,156,246,0.4);
+      opacity: 0; transform: translateY(20px);
+      transition: all var(--tr);
+    }
+    body.custom-cursor-active #scroll-top { cursor: none; }
+    #scroll-top.visible { opacity: 1; transform: translateY(0); }
+    #scroll-top:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(91,156,246,0.55); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .about-image-wrap { order: -1; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+      nav { height: 60px; }
+      .footer-top { grid-template-columns: 1fr; }
+      #hero { padding-top: 90px; }
+    }
+
+    /* ===== REDUCED MOTION ===== */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+      .reveal { opacity: 1 !important; transform: none !important; }
+      html { scroll-behavior: auto; }
+      #cursor-dot, #cursor-ring { display: none; }
+      body { cursor: auto; }
+    }
+
+    /* ===== GLASS HIGHLIGHT ===== */
+    .glass-chip {
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 100px;
+      background: rgba(91,156,246,0.1);
+      border: 1px solid rgba(91,156,246,0.2);
+      font-size: 0.78rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+  </style>
 </head>
 <body>
-  <h1>Hello, I'm Ayyappadas Rajagopal 👋</h1>
-  <p>PhD Researcher | Networked Control Systems | Robotics</p>
-  <p><a href="mailto:ayyappadas.r.nair@gmail.com">📧 Email Me</a></p>
+
+  <!-- Loading screen -->
+  <div id="loader">
+    <div class="loader-ring"></div>
+    <div class="loader-text">Loading</div>
+  </div>
+
+  <!-- Custom cursor -->
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- Particle canvas -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- Navigation -->
+  <nav id="navbar">
+    <div class="nav-logo">Dr.<span>AR</span></div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact" class="nav-cta">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge reveal">PhD · IIT Palakkad · Electrical Engineering</div>
+        <h1 class="hero-name reveal reveal-delay-1">Dr. Ayyappadas<br>Rajagopal</h1>
+        <p class="hero-title reveal reveal-delay-2">Networked Control Systems · Robotics · Cyber-Physical Systems</p>
+        <p class="hero-desc reveal reveal-delay-3">
+          Researcher &amp; Engineer empowering control systems with resilience and intelligence.
+          Bridging the gap between cutting-edge theory and real-world hardware-in-the-loop implementations.
+        </p>
+        <div class="hero-cta reveal reveal-delay-4">
+          <a href="#research" class="btn btn-primary">Explore Research ↓</a>
+          <a href="https://www.ayyappadasrajagopal.com" target="_blank" rel="noopener" class="btn btn-outline">Personal Website ↗</a>
+        </div>
+        <div class="hero-stats reveal reveal-delay-5">
+          <div class="stat-item">
+            <div class="stat-num">PhD</div>
+            <div class="stat-label">Electrical Engineering<br>IIT Palakkad</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">10+</div>
+            <div class="stat-label">Research Publications<br>&amp; Manuscripts</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">HIL</div>
+            <div class="stat-label">Hardware-in-the-Loop<br>Testbeds</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">🚀</div>
+            <div class="stat-label">Startup Founder<br>NCS &amp; Robotics</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <p class="section-title reveal">About <span class="accent-word">Me</span></p>
+      <div class="divider reveal"></div>
+      <p class="section-subtitle reveal reveal-delay-1">PhD Engineer · Researcher · Innovator</p>
+
+      <div class="about-grid">
+        <div class="about-image-wrap reveal reveal-delay-1">
+          <div class="about-image-ring">
+            <div class="about-avatar">🎓</div>
+            <div class="about-badge-float">PhD · Electrical Eng.</div>
+          </div>
+        </div>
+        <div class="about-text reveal reveal-delay-2">
+          <h2>Hello, I'm <span class="accent-word">Dr. Ayyappadas Rajagopal</span></h2>
+          <p>
+            I hold a <strong>PhD in Electrical Engineering</strong> from <strong>IIT Palakkad</strong>, India.
+            My doctoral research focused on optimal state estimation and control for networked systems under
+            uncertain and unreliable communication channels.
+          </p>
+          <p>
+            I am passionate about bridging rigorous mathematical theory with real-world engineering — from
+            designing resilient control algorithms to building hardware-in-the-loop testbeds that validate
+            theoretical models in real time.
+          </p>
+          <p>
+            Currently, I am co-founding a startup focused on <strong>networked control systems and robotics</strong>,
+            bringing academia-quality innovation into industry applications. I'm also preparing manuscripts
+            for top-tier journals and patent filings.
+          </p>
+          <p>🌐 Visit my personal website: <a href="https://www.ayyappadasrajagopal.com" target="_blank" rel="noopener">www.ayyappadasrajagopal.com</a></p>
+          <div class="about-tags">
+            <span class="tag">Control Theory</span>
+            <span class="tag">State Estimation</span>
+            <span class="tag">Cyber-Physical Systems</span>
+            <span class="tag">Reinforcement Learning</span>
+            <span class="tag">Robotics</span>
+            <span class="tag">HIL Testbeds</span>
+            <span class="tag">MATLAB / Simulink</span>
+            <span class="tag">Python</span>
+          </div>
+          <div class="about-links">
+            <a href="https://www.linkedin.com/in/ayyappadasrajagopal/" target="_blank" rel="noopener" class="social-link">💼 LinkedIn</a>
+            <a href="mailto:ayyappadas.r.nair@gmail.com" class="social-link">📧 Email</a>
+            <a href="https://www.ayyappadasrajagopal.com" target="_blank" rel="noopener" class="social-link">🌐 Website</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research -->
+  <section id="research">
+    <div class="container">
+      <p class="section-title reveal">Research <span class="accent-word">Focus</span></p>
+      <div class="divider reveal"></div>
+      <p class="section-subtitle reveal reveal-delay-1">Empowering control systems with resilience and intelligence</p>
+
+      <div class="quote-block reveal reveal-delay-2">
+        <p>"Empowering control systems with resilience and intelligence — bridging the gap between theory and real-world systems."</p>
+        <cite>— Dr. Ayyappadas Rajagopal</cite>
+      </div>
+
+      <div class="research-grid">
+        <div class="research-card reveal reveal-delay-1">
+          <div class="research-icon">📡</div>
+          <h3>Networked Control Systems</h3>
+          <p>Optimal state estimation and control under uncertain and unreliable networks, addressing network-induced delays and packet dropouts.</p>
+        </div>
+        <div class="research-card reveal reveal-delay-2">
+          <div class="research-icon">🔄</div>
+          <h3>Reinforcement Learning &amp; Control</h3>
+          <p>Applying reinforcement learning and robust control techniques for adaptive system performance in dynamic and uncertain environments.</p>
+        </div>
+        <div class="research-card reveal reveal-delay-3">
+          <div class="research-icon">🔐</div>
+          <h3>Cyber-Physical Systems Security</h3>
+          <p>Investigating security aspects of CPS — developing attack-resilient estimation and control strategies for critical infrastructure.</p>
+        </div>
+        <div class="research-card reveal reveal-delay-4">
+          <div class="research-icon">🧪</div>
+          <h3>Hardware-in-the-Loop Testbeds</h3>
+          <p>Designing and developing HIL testbeds to validate theoretical models in real-time, bridging the gap between simulation and hardware.</p>
+        </div>
+        <div class="research-card reveal reveal-delay-1">
+          <div class="research-icon">🤖</div>
+          <h3>Robotics &amp; Automation</h3>
+          <p>Applying networked control and estimation theory to robotic systems, enabling reliable autonomous operation in complex environments.</p>
+        </div>
+        <div class="research-card reveal reveal-delay-2">
+          <div class="research-icon">📊</div>
+          <h3>Estimation Theory</h3>
+          <p>Developing advanced estimation algorithms — Kalman filtering, particle filters, and beyond — for systems with incomplete and noisy measurements.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <div class="container">
+      <p class="section-title reveal">Technical <span class="accent-word">Skills</span></p>
+      <div class="divider reveal"></div>
+      <p class="section-subtitle reveal reveal-delay-1">Tools &amp; expertise built through research and engineering</p>
+
+      <div class="skills-grid">
+        <div class="skill-group reveal reveal-delay-1">
+          <h3>Control &amp; Estimation</h3>
+          <div class="skill-item">
+            <div class="skill-header"><span class="skill-name">Networked Control Systems</span><span class="skill-pct">95%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-pct="0.95"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header"><span class="skill-name">State Estimation / Kalman Filter</span><span class="skill-pct">92%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-pct="0.92"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header"><span class="skill-name">Robust &amp; Optimal Control</span><span class="skill-pct">88%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-pct="0.88"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header"><span class="skill-name">Reinforcement Learning</span><span class="skill-pct">80%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-pct="0.80"></div></div>
+          </div>
+        </div>
+
+        <div class="skill-group reveal reveal-delay-2">
+          <h3>Programming &amp; Tools</h3>
+          <div class="skill-item">
+            <div class="skill-header"><span class="skill-name">MATLAB / Simulink</span><span class="skill-pct">95%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-pct="0.95"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header"><span class="skill-name">Python</span><span class="skill-pct">85%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-pct="0.85"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header"><span class="skill-name">C / C++</span><span class="skill-pct">75%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-pct="0.75"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header"><span class="skill-name">ROS / Robotics Middleware</span><span class="skill-pct">70%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-pct="0.70"></div></div>
+          </div>
+        </div>
+
+        <div class="skill-group reveal reveal-delay-3">
+          <h3>Research &amp; Communication</h3>
+          <div class="skill-item">
+            <div class="skill-header"><span class="skill-name">Technical Writing / LaTeX</span><span class="skill-pct">93%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-pct="0.93"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header"><span class="skill-name">HIL System Design</span><span class="skill-pct">90%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-pct="0.90"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header"><span class="skill-name">Academic Research</span><span class="skill-pct">95%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-pct="0.95"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-header"><span class="skill-name">Data Analysis &amp; Visualization</span><span class="skill-pct">82%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-pct="0.82"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <div class="container">
+      <p class="section-title reveal">Key <span class="accent-word">Projects</span></p>
+      <div class="divider reveal"></div>
+      <p class="section-subtitle reveal reveal-delay-1">Research and engineering initiatives that drive real-world impact</p>
+
+      <div class="projects-grid">
+        <div class="project-card reveal reveal-delay-1">
+          <div class="project-number">01 — Research</div>
+          <h3>Resilient Estimation under Network Uncertainty</h3>
+          <p>Developed robust state estimation frameworks for systems with network-induced delays and packet dropouts, achieving near-optimal performance under severe channel degradation.</p>
+          <div class="project-tags">
+            <span class="project-tag">Kalman Filter</span>
+            <span class="project-tag">MATLAB</span>
+            <span class="project-tag">NCS</span>
+          </div>
+        </div>
+        <div class="project-card reveal reveal-delay-2">
+          <div class="project-number">02 — Research</div>
+          <h3>Cyber-Physical Systems Security Framework</h3>
+          <p>Designed attack-detection and resilient control strategies for CPS, including false-data injection and replay attack scenarios, validated on HIL testbeds.</p>
+          <div class="project-tags">
+            <span class="project-tag">CPS Security</span>
+            <span class="project-tag">HIL</span>
+            <span class="project-tag">Python</span>
+          </div>
+        </div>
+        <div class="project-card reveal reveal-delay-3">
+          <div class="project-number">03 — Engineering</div>
+          <h3>Hardware-in-the-Loop Testbed</h3>
+          <p>Built a comprehensive HIL testbed for validating networked control algorithms in real-time, integrating physical hardware with software-in-the-loop components.</p>
+          <div class="project-tags">
+            <span class="project-tag">HIL</span>
+            <span class="project-tag">Simulink</span>
+            <span class="project-tag">Real-time</span>
+          </div>
+        </div>
+        <div class="project-card reveal reveal-delay-4">
+          <div class="project-number">04 — Startup</div>
+          <h3>NCS &amp; Robotics Startup</h3>
+          <p>Co-founding a startup focused on applying networked control systems and robotics technology to solve real-world industry challenges with academic-grade innovation.</p>
+          <div class="project-tags">
+            <span class="project-tag">Robotics</span>
+            <span class="project-tag">NCS</span>
+            <span class="project-tag">Industry</span>
+          </div>
+        </div>
+        <div class="project-card reveal reveal-delay-1">
+          <div class="project-number">05 — Research</div>
+          <h3>RL-Based Adaptive Control</h3>
+          <p>Applied reinforcement learning techniques to develop adaptive control policies for systems with uncertain dynamics, achieving significant performance improvements.</p>
+          <div class="project-tags">
+            <span class="project-tag">Reinforcement Learning</span>
+            <span class="project-tag">Python</span>
+            <span class="project-tag">Control</span>
+          </div>
+        </div>
+        <div class="project-card reveal reveal-delay-2">
+          <div class="project-number">06 — Publications</div>
+          <h3>Journal &amp; Patent Pipeline</h3>
+          <p>Preparing multiple manuscripts for top-tier IEEE/Automatica journals and filing patents on novel estimation and control methodologies developed during doctoral research.</p>
+          <div class="project-tags">
+            <span class="project-tag">LaTeX</span>
+            <span class="project-tag">IEEE</span>
+            <span class="project-tag">Patent</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <p class="section-title reveal">Get In <span class="accent-word">Touch</span></p>
+      <div class="divider reveal"></div>
+      <p class="section-subtitle reveal reveal-delay-1">Open to collaborations, research discussions, and opportunities</p>
+
+      <div class="contact-grid">
+        <div class="contact-info reveal reveal-delay-1">
+          <h2>Let's Connect</h2>
+          <p>Whether you're interested in research collaboration, startup discussions, or just want to learn about my work — I'd love to hear from you.</p>
+          <div class="contact-links">
+            <a href="https://www.ayyappadasrajagopal.com" target="_blank" rel="noopener" class="contact-link">
+              <div class="contact-link-icon">🌐</div>
+              <div class="contact-link-text">
+                <div class="contact-link-label">Personal Website</div>
+                www.ayyappadasrajagopal.com
+              </div>
+            </a>
+            <a href="mailto:ayyappadas.r.nair@gmail.com" class="contact-link">
+              <div class="contact-link-icon">📧</div>
+              <div class="contact-link-text">
+                <div class="contact-link-label">Personal Email</div>
+                ayyappadas.r.nair@gmail.com
+              </div>
+            </a>
+            <a href="mailto:122004004@smail.iitpkd.ac.in" class="contact-link">
+              <div class="contact-link-icon">🎓</div>
+              <div class="contact-link-text">
+                <div class="contact-link-label">Academic Email</div>
+                122004004@smail.iitpkd.ac.in
+              </div>
+            </a>
+            <a href="https://www.linkedin.com/in/ayyappadasrajagopal/" target="_blank" rel="noopener" class="contact-link">
+              <div class="contact-link-icon">💼</div>
+              <div class="contact-link-text">
+                <div class="contact-link-label">LinkedIn</div>
+                linkedin.com/in/ayyappadasrajagopal
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <form class="contact-form reveal reveal-delay-2" onsubmit="handleFormSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" placeholder="Jane" required />
+            </div>
+            <div class="form-group">
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" placeholder="Doe" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="jane@example.com" required />
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" placeholder="Research Collaboration" />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" placeholder="Tell me about your idea or question..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;border:none;">Send Message ✉</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-name">Dr. Ayyappadas Rajagopal</div>
+          <p>PhD · Electrical Engineering · IIT Palakkad<br>Networked Control Systems · Robotics · CPS</p>
+          <a href="https://www.ayyappadasrajagopal.com" target="_blank" rel="noopener" class="footer-website-link">🌐 www.ayyappadasrajagopal.com ↗</a>
+        </div>
+        <div class="footer-section">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="https://www.ayyappadasrajagopal.com" target="_blank" rel="noopener">Personal Website</a></li>
+            <li><a href="https://www.linkedin.com/in/ayyappadasrajagopal/" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="mailto:ayyappadas.r.nair@gmail.com">Personal Email</a></li>
+            <li><a href="mailto:122004004@smail.iitpkd.ac.in">Academic Email</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Dr. Ayyappadas Rajagopal · All rights reserved</p>
+        <div class="footer-socials">
+          <a href="https://www.linkedin.com/in/ayyappadasrajagopal/" target="_blank" rel="noopener" class="footer-social" aria-label="LinkedIn">💼</a>
+          <a href="mailto:ayyappadas.r.nair@gmail.com" class="footer-social" aria-label="Email">📧</a>
+          <a href="https://www.ayyappadasrajagopal.com" target="_blank" rel="noopener" class="footer-social" aria-label="Website">🌐</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to top -->
+  <button id="scroll-top" aria-label="Scroll to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+  <script>
+  (() => {
+    'use strict';
+
+    /* ===== LOADER ===== */
+    window.addEventListener('load', () => {
+      setTimeout(() => document.getElementById('loader').classList.add('hidden'), 500);
+    });
+
+    /* ===== PARTICLE CANVAS ===== */
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+    let W, H, particles = [], mouse = { x: -9999, y: -9999 };
+    const PARTICLE_COUNT = 90;
+    const CONNECTION_DIST = 130;
+    const MOUSE_DIST = 180;
+
+    function resize() {
+      W = canvas.width  = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    class Particle {
+      constructor() { this.reset(true); }
+      reset(init) {
+        this.x  = Math.random() * W;
+        this.y  = init ? Math.random() * H : -10;
+        this.vx = (Math.random() - 0.5) * 0.35;
+        this.vy = Math.random() * 0.3 + 0.1;
+        this.r  = Math.random() * 1.8 + 0.6;
+        this.a  = Math.random() * 0.55 + 0.15;
+      }
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        if (this.y > H + 10) this.reset(false);
+        if (this.x < 0 || this.x > W) this.vx *= -1;
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(91,156,246,${this.a})`;
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < PARTICLE_COUNT; i++) particles.push(new Particle());
+
+    function drawConnections() {
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx*dx + dy*dy);
+          if (dist < CONNECTION_DIST) {
+            const alpha = (1 - dist / CONNECTION_DIST) * 0.18;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(91,156,246,${alpha})`;
+            ctx.lineWidth = 0.8;
+            ctx.stroke();
+          }
+        }
+        // Mouse connections
+        const mdx = particles[i].x - mouse.x;
+        const mdy = particles[i].y - mouse.y;
+        const mdist = Math.sqrt(mdx*mdx + mdy*mdy);
+        if (mdist < MOUSE_DIST) {
+          const alpha = (1 - mdist / MOUSE_DIST) * 0.35;
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(mouse.x, mouse.y);
+          ctx.strokeStyle = `rgba(167,139,250,${alpha})`;
+          ctx.lineWidth = 0.8;
+          ctx.stroke();
+        }
+      }
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, W, H);
+      particles.forEach(p => { p.update(); p.draw(); });
+      drawConnections();
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    window.addEventListener('mousemove', e => { mouse.x = e.clientX; mouse.y = e.clientY; });
+
+    /* ===== CUSTOM CURSOR ===== */
+    const dot  = document.getElementById('cursor-dot');
+    const ring = document.getElementById('cursor-ring');
+    let ringX = 0, ringY = 0, dotX = 0, dotY = 0;
+    let cursorActive = false;
+
+    document.addEventListener('mousemove', e => {
+      dotX = e.clientX; dotY = e.clientY;
+      if (!cursorActive) { cursorActive = true; document.body.classList.add('custom-cursor-active'); }
+    });
+
+    function animateCursor() {
+      ringX += (dotX - ringX) * 0.12;
+      ringY += (dotY - ringY) * 0.12;
+      dot.style.left  = dotX + 'px';
+      dot.style.top   = dotY + 'px';
+      ring.style.left = ringX + 'px';
+      ring.style.top  = ringY + 'px';
+      requestAnimationFrame(animateCursor);
+    }
+    animateCursor();
+
+    // Hover state
+    document.querySelectorAll('a,button,.research-card,.project-card,.skill-group,.contact-link').forEach(el => {
+      el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+      el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+    });
+
+    /* ===== SCROLL REVEAL ===== */
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    /* ===== SKILL BARS ===== */
+    const skillObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll('.skill-fill').forEach(fill => {
+            fill.style.transform = `scaleX(${fill.dataset.pct})`;
+            fill.classList.add('animated');
+          });
+        }
+      });
+    }, { threshold: 0.3 });
+    document.querySelectorAll('.skill-group').forEach(el => skillObserver.observe(el));
+
+    /* ===== STICKY NAV ===== */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+      document.getElementById('scroll-top').classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+
+    /* ===== CARD TILT ===== */
+    document.querySelectorAll('.research-card,.project-card,.skill-group').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const cx = rect.left + rect.width  / 2;
+        const cy = rect.top  + rect.height / 2;
+        const rx = ((e.clientY - cy) / rect.height) * 8;
+        const ry = ((e.clientX - cx) / rect.width)  * -8;
+        card.style.transform = `perspective(600px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-6px)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+      });
+    });
+
+    /* ===== CONTACT FORM ===== */
+    window.handleFormSubmit = function(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('button[type="submit"]');
+      btn.textContent = '✅ Sent! Thank you.';
+      btn.disabled = true;
+      setTimeout(() => { btn.textContent = 'Send Message ✉'; btn.disabled = false; e.target.reset(); }, 3500);
+    };
+
+  })();
+  </script>
 </body>
 </html>
