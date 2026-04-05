@@ -1,7 +1,7 @@
 <!-- Profile README -->
 
 <p align="center">
-  <img src="images/header_.png" alt="Header Banner" width="100%" />
+  <img src="images/header_bb.png" alt="Header Banner" width="100%" />
 </p>
 
 <h1 align="center">
