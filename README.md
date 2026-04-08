@@ -1,9 +1,9 @@
 <!-- Profile README -->
-
+<!
 <p align="center">
   <img src="images/image1.png" alt="Header Banner" width="100%" />
 </p>
-
+>
 <h1 align="center">
   👋 Hello! I'm <a href="https://www.ayyappadasrajagopal.com/">Dr. Ayyappadas Rajagopal</a>
 </h1>
