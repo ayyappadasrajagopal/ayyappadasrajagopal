@@ -76,10 +76,7 @@
 📊  Developing advanced optimization algorithms for complex network design and resource allocation problems
 📜  Preparing research manuscripts, scientific publications, and intellectual property contributions
 ```
-
 ---
-
-**A structural recommendation:** I have placed Quantum Networks and QKD at the top because they represent your current postdoctoral research direction at SIT. Networked Control Systems, AI, RL, robotics, and HIL remain prominent because they represent your doctoral expertise and continuing research interests.
 
 ### 🛠️ Tech Stack & Tools
 
