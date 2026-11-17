@@ -32,42 +32,54 @@
 🎓 **PhD in Electrical Engineering** from **IIT Palakkad**, India
 
 🌐 Currently exploring **Quantum Networks**, **Quantum Key Distribution (QKD)**, **Measurement-Device-Independent QKD (MDI-QKD)**, and **Quantum-Secure Communication**
+
 🧠 Passionate about **Networked Control Systems**, **Estimation & Control**, and **Cyber-Physical Systems**
-🤖 Bridging the gap between **theory and real-world systems** through **hardware-in-the-loop (HIL)** implementations and **applied algorithms**
-🧪 Exploring the frontiers of **Artificial Intelligence**, **Reinforcement Learning**, and **Machine Learning** for intelligent decision-making in autonomous systems
-📐 Applying **Deep Learning** and **Advanced Optimization** techniques to solve complex engineering challenges
+
+🤖 Trying to bridge the gap between **theory and real-world systems** through **hardware-in-the-loop (HIL)** implementations and **applied algorithms**
+
+🧪 Also, exploring the frontiers of **Artificial Intelligence**, **Reinforcement Learning**, and **Machine Learning** for intelligent decision-making in autonomous systems
+
+📐 Additionally, Applying **Deep Learning** and **Advanced Optimization** techniques to solve complex engineering challenges
 
 ---
 
 ### 🔬 Research Focus
 
-> *"Empowering control systems with resilience and intelligence."*
+> *"Empowering intelligent systems through quantum-secure communication, resilient control, and advanced AI."*
 
 | Area | Description |
 |------|-------------|
-| 📡 **State Estimation & Control** | Optimal estimation under **uncertain and unreliable networks** |
-| 🔄 **Reinforcement Learning (RL)** | **Model-free & model-based RL** for robust, adaptive control of dynamical systems |
-| 🧠 **Machine Learning (ML)** | **Supervised, unsupervised, and semi-supervised learning** for data-driven system modeling and anomaly detection |
-| 🤖 **Artificial Intelligence (AI)** | **AI-driven autonomy** — intelligent decision-making, planning, and perception for cyber-physical systems |
-| 🧬 **Deep Learning & Neural Networks** | **Deep RL (DQN, PPO, SAC)**, recurrent architectures (**LSTM, Transformer**) for sequential decision-making and time-series prediction |
-| 🔐 **CPS Security** | Security analysis of **cyber-physical systems** using **adversarial ML** and intrusion detection |
-| 🧪 **HIL Testbeds** | Real-time validation of theoretical models using hardware-in-the-loop |
-| 📊 **Advanced Optimization** | **Convex optimization, stochastic programming**, and **meta-heuristic algorithms** for large-scale systems |
+| 🌐 **Quantum Networks & Communication** | Design and optimization of **quantum networks**, focusing on secure communication, network architectures, and resource-efficient quantum connectivity |
+| 🔐 **Quantum Key Distribution (QKD)** | **Discrete-variable QKD**, decoy-state protocols, **Measurement-Device-Independent QKD (MDI-QKD)**, and finite-key security analysis |
+| 📡 **Networked Control Systems** | State estimation and optimal control under **uncertain communication channels, network-induced delays, and packet dropouts** |
+| 🔄 **Reinforcement Learning (RL)** | **Model-free and model-based RL** for robust, adaptive control and intelligent decision-making in dynamical systems |
+| 🧠 **Machine Learning (ML)** | **Supervised, unsupervised, and semi-supervised learning** for data-driven system modeling, prediction, and anomaly detection |
+| 🤖 **Artificial Intelligence (AI)** | **AI-driven autonomy** — intelligent decision-making, planning, and perception for cyber-physical systems and autonomous robotics |
+| 🧬 **Deep Learning & Neural Networks** | **Deep RL (DQN, PPO, SAC)** and recurrent architectures (**LSTM, Transformers**) for sequential decision-making, system identification, and time-series prediction |
+| 🛡️ **Cyber-Physical Systems Security** | Security and resilience of **cyber-physical systems** using adversarial machine learning, anomaly detection, and intrusion detection |
+| 🧪 **Hardware-in-the-Loop (HIL) Testbeds** | Real-time implementation and experimental validation of theoretical models, estimation algorithms, and control strategies |
+| 📊 **Advanced Optimization** | **Convex and non-convex optimization, stochastic programming, and metaheuristic algorithms** for complex, large-scale networked systems |
 
 ---
 
 ### 🚀 What I'm Working On
 
 ```text
-🛠  Building robust estimation frameworks for network-induced delays & packet dropouts
-🤖  Developing a startup focused on networked control systems & robotics
-🧠  Applying deep reinforcement learning (DRL) for adaptive control in uncertain environments
-📈  Exploring transfer learning & domain adaptation for cross-platform CPS deployment
-🔬  Investigating physics-informed neural networks (PINNs) for system identification
-📜  Preparing manuscripts for top-tier journals and patent filings
+🌐  Investigating the optimization and resource allocation of quantum-secure networks
+🔐  Developing optimization frameworks for shareable measurement-device-independent QKD (MDI-QKD) networks
+📡  Exploring optimal deployment, positioning, and resource allocation of untrusted measurement nodes in quantum networks
+🛠  Building robust estimation and control frameworks under network-induced delays, packet dropouts, and channel uncertainties
+🤖  Applying deep reinforcement learning (DRL) for adaptive control and intelligent decision-making in uncertain environments
+🧠  Exploring AI and machine learning techniques for autonomous systems and cyber-physical system intelligence
+📈  Investigating transfer learning and domain adaptation for cross-platform CPS deployment
+🔬  Exploring physics-informed neural networks (PINNs) and learning-based approaches for system identification
+📊  Developing advanced optimization algorithms for complex network design and resource allocation problems
+📜  Preparing research manuscripts, scientific publications, and intellectual property contributions
 ```
 
 ---
+
+**A structural recommendation:** I have placed Quantum Networks and QKD at the top because they represent your current postdoctoral research direction at SIT. Networked Control Systems, AI, RL, robotics, and HIL remain prominent because they represent your doctoral expertise and continuing research interests.
 
 ### 🛠️ Tech Stack & Tools
 
