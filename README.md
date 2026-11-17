@@ -71,37 +71,57 @@
 📊  Developing advanced optimization algorithms for complex network design and resource allocation problems
 📜  Preparing research manuscripts, scientific publications, and intellectual property contributions
 ```
----
 ### 🛠️ Tech Stack & Tools
 
 **🔬 Engineering, Simulation & Research**
 
-\<p align="center">   \<img src="[https://img.shields.io/badge/MATLAB-0076A8?style=for-the-badge&logo=mathworks&logoColor=white](https://img.shields.io/badge/MATLAB-0076A8?style=for-the-badge\&logo=mathworks\&logoColor=white)" alt="MATLAB" />   \<img src="[https://img.shields.io/badge/Simulink-0076A8?style=for-the-badge&logo=mathworks&logoColor=white](https://img.shields.io/badge/Simulink-0076A8?style=for-the-badge\&logo=mathworks\&logoColor=white)" alt="Simulink" />   \<img src="[https://img.shields.io/badge/LabVIEW-FFDB00?style=for-the-badge&logo=labview&logoColor=black](https://img.shields.io/badge/LabVIEW-FFDB00?style=for-the-badge\&logo=labview\&logoColor=black)" alt="LabVIEW" />   \<img src="[https://img.shields.io/badge/LaTeX-008080?style=for-the-badge&logo=latex&logoColor=white](https://img.shields.io/badge/LaTeX-008080?style=for-the-badge\&logo=latex\&logoColor=white)" alt="LaTeX" /> \</p>
+\<p align="center">
+&#x20; \<img src="[https://img.shields.io/badge/MATLAB-0076A8?style=for-the-badge&logo=mathworks&logoColor=white](https://img.shields.io/badge/MATLAB-0076A8?style=for-the-badge\&logo=mathworks\&logoColor=white)" alt="MATLAB" />
+&#x20; \<img src="[https://img.shields.io/badge/Simulink-0076A8?style=for-the-badge&logo=mathworks&logoColor=white](https://img.shields.io/badge/Simulink-0076A8?style=for-the-badge\&logo=mathworks\&logoColor=white)" alt="Simulink" />
+&#x20; \<img src="[https://img.shields.io/badge/LabVIEW-FFDB00?style=for-the-badge&logo=labview&logoColor=black](https://img.shields.io/badge/LabVIEW-FFDB00?style=for-the-badge\&logo=labview\&logoColor=black)" alt="LabVIEW" />
+&#x20; \<img src="[https://img.shields.io/badge/LaTeX-008080?style=for-the-badge&logo=latex&logoColor=white](https://img.shields.io/badge/LaTeX-008080?style=for-the-badge\&logo=latex\&logoColor=white)" alt="LaTeX" />
+\</p>
 
 **💻 Programming Languages**
 
-\<p align="center">   \<img src="[https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white](https://img.shields.io/badge/Python-3776AB?style=for-the-badge\&logo=python\&logoColor=white)" alt="Python" />   \<img src="[https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white](https://img.shields.io/badge/C++-00599C?style=for-the-badge\&logo=cplusplus\&logoColor=white)" alt="C++" />   \<img src="[https://img.shields.io/badge/C%23-512BD4?style=for-the-badge&logo=csharp&logoColor=white](https://img.shields.io/badge/C%23-512BD4?style=for-the-badge\&logo=csharp\&logoColor=white)" alt="C#" /> \</p>
+\<p align="center">
+&#x20; \<img src="[https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white](https://img.shields.io/badge/Python-3776AB?style=for-the-badge\&logo=python\&logoColor=white)" alt="Python" />
+&#x20; \<img src="[https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white](https://img.shields.io/badge/C++-00599C?style=for-the-badge\&logo=cplusplus\&logoColor=white)" alt="C++" />
+&#x20; \<img src="[https://img.shields.io/badge/C%23-512BD4?style=for-the-badge&logo=csharp&logoColor=white](https://img.shields.io/badge/C%23-512BD4?style=for-the-badge\&logo=csharp\&logoColor=white)" alt="C#" />
+\</p>
 
 **🤖 Robotics & Autonomous Systems**
 
-\<p align="center">   \<img src="[https://img.shields.io/badge/ROS2-22314E?style=for-the-badge&logo=ros&logoColor=white](https://img.shields.io/badge/ROS2-22314E?style=for-the-badge\&logo=ros\&logoColor=white)" alt="ROS 2" />   \<img src="[https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge\&logo=linux\&logoColor=black)" alt="Linux" /> \</p>
+\<p align="center">
+&#x20; \<img src="[https://img.shields.io/badge/ROS2-22314E?style=for-the-badge&logo=ros&logoColor=white](https://img.shields.io/badge/ROS2-22314E?style=for-the-badge\&logo=ros\&logoColor=white)" alt="ROS 2" />
+&#x20; \<img src="[https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge\&logo=linux\&logoColor=black)" alt="Linux" />
+\</p>
 
 **🧠 Artificial Intelligence & Machine Learning**
 
-\<p align="center">   \<img src="[https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge\&logo=pytorch\&logoColor=white)" alt="PyTorch" />   \<img src="[https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge\&logo=tensorflow\&logoColor=white)" alt="TensorFlow" />   \<img src="[https://img.shields.io/badge/Keras-D00000?style=for-the-badge&logo=keras&logoColor=white](https://img.shields.io/badge/Keras-D00000?style=for-the-badge\&logo=keras\&logoColor=white)" alt="Keras" />   \<img src="[https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white](https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge\&logo=scikit-learn\&logoColor=white)" alt="Scikit-learn" />   \<img src="[https://img.shields.io/badge/Gymnasium-0081A5?style=for-the-badge&logo=openaigym&logoColor=white](https://img.shields.io/badge/Gymnasium-0081A5?style=for-the-badge\&logo=openaigym\&logoColor=white)" alt="Gymnasium" /> \</p>
+\<p align="center">
+&#x20; \<img src="[https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge\&logo=pytorch\&logoColor=white)" alt="PyTorch" />
+&#x20; \<img src="[https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge\&logo=tensorflow\&logoColor=white)" alt="TensorFlow" />
+&#x20; \<img src="[https://img.shields.io/badge/Keras-D00000?style=for-the-badge&logo=keras&logoColor=white](https://img.shields.io/badge/Keras-D00000?style=for-the-badge\&logo=keras\&logoColor=white)" alt="Keras" />
+&#x20; \<img src="[https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white](https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge\&logo=scikit-learn\&logoColor=white)" alt="Scikit-learn" />
+&#x20; \<img src="[https://img.shields.io/badge/Gymnasium-0081A5?style=for-the-badge&logo=openaigym&logoColor=white](https://img.shields.io/badge/Gymnasium-0081A5?style=for-the-badge\&logo=openaigym\&logoColor=white)" alt="Gymnasium" />
+\</p>
 
 **📊 Scientific Computing & Data Analysis**
 
-\<p align="center">   \<img src="[https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white](https://img.shields.io/badge/NumPy-013243?style=for-the-badge\&logo=numpy\&logoColor=white)" alt="NumPy" />   \<img src="[https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white](https://img.shields.io/badge/Pandas-150458?style=for-the-badge\&logo=pandas\&logoColor=white)" alt="Pandas" /> \</p>
+\<p align="center">
+&#x20; \<img src="[https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white](https://img.shields.io/badge/NumPy-013243?style=for-the-badge\&logo=numpy\&logoColor=white)" alt="NumPy" />
+&#x20; \<img src="[https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white](https://img.shields.io/badge/Pandas-150458?style=for-the-badge\&logo=pandas\&logoColor=white)" alt="Pandas" />
+\</p>
 
 **⚙️ Development & Version Control**
 
-\<p align="center">
-&#x20; \<img src="[https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white](https://img.shields.io/badge/Git-F05032?style=for-the-badge\&logo=git\&logoColor=white)" alt="Git" />
-&#x20; \<img src="[https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white](https://img.shields.io/badge/GitHub-181717?style=for-the-badge\&logo=github\&logoColor=white)" alt="GitHub" />
-\</p>
+\<p align="center">   \<img src="[https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white](https://img.shields.io/badge/Git-F05032?style=for-the-badge\&logo=git\&logoColor=white)" alt="Git" />   \<img src="[https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white](https://img.shields.io/badge/GitHub-181717?style=for-the-badge\&logo=github\&logoColor=white)" alt="GitHub" /> \</p>
 
 ---
+
+
+
 
 
 
