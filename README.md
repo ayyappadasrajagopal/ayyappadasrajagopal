@@ -15,9 +15,8 @@
   <a href="mailto:ayyappadas.r.nair@gmail.com"><img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>
 </p>
 
-html
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=3B82F6&center=true&vCenter=true&multiline=true&width=850&height=150&lines=%F0%9F%8E%93+PhD+in+Electrical+Engineering+%7C+IIT+Palakkad;%F0%9F%94%AC+Postdoctoral+Research+Fellow+%7C+SIT%2C+Singapore;%F0%9F%8C%90+Quantum+Networks+%7C+Quantum-Secure+Communication+%7C+QKD;%F0%9F%A4%96+Networked+Control+%7C+Cyber-Physical+Systems+%7C+Robotics;%F0%9F%A7%A0+AI+%7C+Machine+Learning+%7C+Reinforcement+Learning" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=3B82F6&center=true&vCenter=true&multiline=true&width=850&height=150&lines=%F0%9F%94%AC+Postdoctoral+Research+Fellow+%7C+SIT%2C+Singapore;%F0%9F%8E%93+PhD+in+Electrical+Engineering+%7C+IIT+Palakkad;%F0%9F%8C%90+Quantum+Networks+%7C+Quantum-Secure+Communication+%7C+QKD;%F0%9F%A4%96+Networked+Control+%7C+Cyber-Physical+Systems+%7C+Robotics;%F0%9F%A7%A0+AI+%7C+Machine+Learning+%7C+Reinforcement+Learning" alt="Typing SVG" />
 </p>
 
 
