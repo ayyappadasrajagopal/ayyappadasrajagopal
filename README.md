@@ -28,22 +28,16 @@
 ---
 
 ### 🧑‍🔬 About Me
-🔬 **Postdoctoral Research Fellow at Singapore Institute of Technology (SIT), Singapore**
 
-🎓 **PhD in Electrical Engineering** from **IIT Palakkad**, India
-
-🌐 Currently exploring **Quantum Networks**, **Quantum Key Distribution (QKD)**, **Measurement-Device-Independent QKD (MDI-QKD)**, and **Quantum-Secure Communication**
-
-🧠 Passionate about **Networked Control Systems**, **Estimation & Control**, and **Cyber-Physical Systems**
-
-🤖 Trying to bridge the gap between **theory and real-world systems** through **hardware-in-the-loop (HIL)** implementations and **applied algorithms**
-
-🧪 Also, exploring the frontiers of **Artificial Intelligence**, **Reinforcement Learning**, and **Machine Learning** for intelligent decision-making in autonomous systems
-
-📐 Additionally, Applying **Deep Learning** and **Advanced Optimization** techniques to solve complex engineering challenges
+🔬 **Postdoctoral Research Fellow at Singapore Institute of Technology (SIT), Singapore**<br>
+🎓 **PhD in Electrical Engineering** from **IIT Palakkad**, India<br>
+🌐 Currently exploring **Quantum Networks**, **Quantum Key Distribution (QKD)**, **Measurement-Device-Independent QKD (MDI-QKD)**, and **Quantum-Secure Communication**<br>
+🧠 Passionate about **Networked Control Systems**, **Estimation & Control**, and **Cyber-Physical Systems**<br>
+🤖 Bridging the gap between **theory and real-world systems** through **hardware-in-the-loop (HIL)** implementations and **applied algorithms**<br>
+🧪 Exploring **Artificial Intelligence**, **Reinforcement Learning**, and **Machine Learning** for intelligent decision-making in autonomous systems<br>
+📐 Applying **Deep Learning** and **Advanced Optimization** techniques to solve complex engineering challenges
 
 ---
-
 ### 🔬 Research Focus
 
 > *"Empowering intelligent systems through quantum-secure communication, resilient control, and advanced AI."*
