@@ -28,7 +28,9 @@
 
 ### 🧑‍🔬 About Me
 🔬 **Postdoctoral Research Fellow at Singapore Institute of Technology (SIT), Singapore**
+
 🎓 **PhD in Electrical Engineering** from **IIT Palakkad**, India
+
 🌐 Currently exploring **Quantum Networks**, **Quantum Key Distribution (QKD)**, **Measurement-Device-Independent QKD (MDI-QKD)**, and **Quantum-Secure Communication**
 🧠 Passionate about **Networked Control Systems**, **Estimation & Control**, and **Cyber-Physical Systems**
 🤖 Bridging the gap between **theory and real-world systems** through **hardware-in-the-loop (HIL)** implementations and **applied algorithms**
