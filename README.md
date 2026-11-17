@@ -27,11 +27,12 @@
 ---
 
 ### 🧑‍🔬 About Me
-
-🎓 **PhD in Electrical Engineering** from **IIT Palakkad**, India  
-🧠 Passionate about **Networked Control Systems**, **Estimation & Control**, and **Cyber-Physical Systems**  
-🤖 Bridging the gap between **theory and real-world systems** through **hardware-in-the-loop (HIL)** implementations and **applied algorithms**  
-🧪 Exploring the frontiers of **Artificial Intelligence**, **Reinforcement Learning**, and **Machine Learning** for intelligent decision-making in autonomous systems  
+🔬 **Postdoctoral Research Fellow at Singapore Institute of Technology (SIT), Singapore**
+🎓 **PhD in Electrical Engineering** from **IIT Palakkad**, India
+🌐 Currently exploring **Quantum Networks**, **Quantum Key Distribution (QKD)**, **Measurement-Device-Independent QKD (MDI-QKD)**, and **Quantum-Secure Communication**
+🧠 Passionate about **Networked Control Systems**, **Estimation & Control**, and **Cyber-Physical Systems**
+🤖 Bridging the gap between **theory and real-world systems** through **hardware-in-the-loop (HIL)** implementations and **applied algorithms**
+🧪 Exploring the frontiers of **Artificial Intelligence**, **Reinforcement Learning**, and **Machine Learning** for intelligent decision-making in autonomous systems
 📐 Applying **Deep Learning** and **Advanced Optimization** techniques to solve complex engineering challenges
 
 ---
